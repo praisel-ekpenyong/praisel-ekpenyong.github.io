@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Praisel Ekpenyong | SOC Analyst</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <canvas id="matrix"></canvas>
+
+    <div class="terminal-container" id="terminal-view">
+        <div class="terminal-header">
+            <div class="buttons">
+                <span class="close"></span>
+                <span class="minimize"></span>
+                <span class="maximize"></span>
+            </div>
+            <div class="title">praisel@soc-analyst: ~</div>
+        </div>
+        <div class="terminal-body" id="terminal-body">
+            <div class="welcome-msg">
+                <pre>
+  ____            _         _ 
+ |  _ \ _ __ __ _(_)___ ___| |
+ | |_) | '__/ _` | / __/ _ \ |
+ |  __/| | | (_| | \__ \  __/ |
+ |_|   |_|  \__,_|_|___/\___|_|
+                </pre>
+                <p><strong>System Ready.</strong> Welcome to Praisel Ekpenyong's Portfolio.</p>
+                <p>Type <span class="cmd">help</span> to see available commands.</p>
+                <p>Type <span class="cmd">gui</span> to switch to the graphical version.</p>
+                <br>
+            </div>
+            
+            <div class="input-line">
+                <span class="prompt">guest@praisel-soc:~$</span>
+                <input type="text" id="cmd-input" autocomplete="off" autofocus>
+            </div>
+        </div>
+    </div>
+
+    <div class="gui-container hidden" id="gui-view">
+        <nav>
+            <div class="logo">PE_SOC</div>
+            <div class="nav-links">
+                <a href="#" onclick="switchMode('terminal')">_Terminal</a>
+                <a href="#projects">Case Studies</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </nav>
+        
+        <header class="hero">
+            <h1>Praisel Ekpenyong</h1>
+            <h2>SOC Analyst Tier 1</h2>
+            <p>Analyzing SIEM alerts, Windows Event Logs, and suspicious activity to determine true positives.</p>
+            <div class="skills-bar">
+                <span class="tag">Splunk</span>
+                <span class="tag">Wireshark</span>
+                <span class="tag">Azure</span>
+                <span class="tag">ServiceNow</span>
+                <span class="tag">Qualys</span>
+            </div>
+        </header>
+
+        <section id="projects" class="gui-section">
+            <h3>// CASE STUDIES & INVESTIGATIONS</h3>
+            <div class="project-grid">
+                
+                <div class="card">
+                    <i class="fas fa-user-lock"></i>
+                    <h4>Brute Force Investigation</h4>
+                    <p>Analyzed Windows authentication logs and correlated SIEM data to map attack vectors using MITRE ATT&CK.</p>
+                    <a href="https://github.com/praisel-ekpenyong/case-studies/brute-force-investigation.md" target="_blank" class="card-link">View Report ></a>
+                </div>
+
+                <div class="card">
+                    <i class="fas fa-bug"></i>
+                    <h4>Malware Execution</h4>
+                    <p>Investigated suspicious process execution chains and analyzed Windows Event Logs for indicators of compromise.</p>
+                    <a href="https://github.com/praisel-ekpenyong/case-studies/malware-execution-investigation.md" target="_blank" class="card-link">View Report ></a>
+                </div>
+
+                <div class="card">
+                    <i class="fas fa-search"></i>
+                    <h4>Event Log Analysis</h4>
+                    <p>Deep dive into Windows Security Event Logs to identify suspicious activity timelines and anomalies.</p>
+                    <a href="https://github.com/praisel-ekpenyong/case-studies/windows-event-logs-investigation.md" target="_blank" class="card-link">View Report ></a>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="contact" class="gui-section">
+            <h3>// INITIALIZE_CONNECTION</h3>
+            <p>Based in Nigeria. Open to Remote & Relocation.</p>
+            <a href="mailto:ekpenyongpraisel@gmail.com" class="btn-glitch">Send Email</a>
+            <br><br>
+            <div class="social-links">
+                <a href="https://linkedin.com/in/praiselekpenyong" target="_blank">LinkedIn</a> | 
+                <a href="https://github.com/praisel-ekpenyong" target="_blank">GitHub</a>
+            </div>
+        </section>
+
+        <footer>
+            <p>© 2026 Praisel Ekpenyong. Security Clearance: GRANTED.</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
