@@ -28,7 +28,7 @@ const draw = () => {
     }
 };
 
-setInterval(draw, 30);
+let interval = setInterval(draw, 30);
 
 // --- TERMINAL LOGIC ---
 const input = document.getElementById('cmd-input');
@@ -100,10 +100,16 @@ function switchMode(mode) {
         terminalView.classList.add('hidden');
         guiView.classList.remove('hidden');
         document.body.style.overflow = 'auto'; // Enable scroll for GUI
+        // Optional: Pause matrix rain to save performance
+        // clearInterval(interval);
+        // canvas.style.display = 'none';
     } else {
         guiView.classList.add('hidden');
         terminalView.classList.remove('hidden');
         document.body.style.overflow = 'hidden'; // Disable scroll for Terminal
+        // Restart matrix rain if paused
+        // canvas.style.display = 'block';
+        // interval = setInterval(draw, 30);
         setTimeout(() => document.getElementById('cmd-input').focus(), 100);
     }
 }
