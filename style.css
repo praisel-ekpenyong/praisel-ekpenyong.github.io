@@ -1,9 +1,14 @@
+/* --- MERGED STYLES --- */
+
+/* 1. GLOBAL & MATRIX VARIABLES */
 :root {
     --bg-color: #0d0208;
     --terminal-bg: rgba(13, 2, 8, 0.95);
-    --primary: #00ff41; /* Matrix Green */
+    --primary: #00ff41; /* Matrix Green for Terminal */
     --text: #e5e5e5;
     --font-mono: 'Courier New', Courier, monospace;
+    --gui-bg: #0a0a0a; /* Your GUI Background */
+    --gui-accent: #00ff88; /* Your GUI Accent */
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -11,22 +16,23 @@
 body {
     background-color: var(--bg-color);
     color: var(--text);
-    font-family: var(--font-mono);
-    overflow: hidden; 
+    /* Default font for terminal, overridden in GUI */
+    font-family: var(--font-mono); 
+    overflow: hidden; /* Start hidden for terminal */
 }
 
-/* --- MATRIX BACKGROUND --- */
-canvas {
+/* --- MATRIX CANVAS --- */
+canvas#matrix {
     position: fixed;
     top: 0;
     left: 0;
-    z-index: -1;
-    opacity: 0.15; /* Slightly dimmed so text is readable */
+    z-index: 0;
+    opacity: 0.15;
 }
 
-/* --- TERMINAL STYLES --- */
+/* --- TERMINAL STYLES (The Intro) --- */
 .terminal-container {
-    width: 90%; /* Mobile friendly */
+    width: 90%;
     max-width: 900px;
     height: 600px;
     margin: 50px auto;
@@ -55,6 +61,7 @@ canvas {
     height: 12px;
     border-radius: 50%;
     margin-right: 5px;
+    cursor: pointer;
 }
 .close { background: #ff5f56; }
 .minimize { background: #ffbd2e; }
@@ -69,15 +76,18 @@ canvas {
 
 .welcome-msg pre {
     color: var(--primary);
-    font-size: 12px;
-    line-height: 12px;
+    font-size: 10px;
+    line-height: 10px;
     margin-bottom: 20px;
     font-weight: bold;
+}
+@media (min-width: 600px) {
+    .welcome-msg pre { font-size: 14px; line-height: 14px; }
 }
 
 .cmd { color: var(--primary); font-weight: bold; }
 .prompt { color: var(--primary); margin-right: 10px; }
-input {
+input#cmd-input {
     background: transparent;
     border: none;
     color: var(--text);
@@ -89,95 +99,245 @@ input {
 
 .output { margin-bottom: 10px; color: #ccc; white-space: pre-wrap; line-height: 1.5; }
 
-/* --- GUI STYLES --- */
-.gui-container {
-    height: 100vh;
-    overflow-y: auto;
-    padding: 20px;
-}
-
+/* Utility Class to Hide Elements */
 .hidden { display: none !important; }
 
-nav {
-    display: flex;
-    justify-content: space-between;
-    padding: 20px 50px;
-    border-bottom: 1px solid var(--primary);
-    background: rgba(13, 2, 8, 0.8);
+
+/* --- YOUR ORIGINAL PORTFOLIO STYLES (GUI) --- */
+/* These styles only apply inside the GUI container */
+
+#gui-view {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #e0e0e0;
+    background: #0a0a0a;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    overflow-y: auto;
+    z-index: 20;
 }
 
-.nav-links a {
-    color: var(--text);
-    text-decoration: none;
-    margin-left: 20px;
-    transition: 0.3s;
+#gui-view .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
-.nav-links a:hover { color: var(--primary); text-shadow: 0 0 5px var(--primary); }
 
-.hero {
+#gui-view header {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    padding: 80px 0;
     text-align: center;
-    padding: 80px 20px;
+    border-bottom: 3px solid #00ff88;
 }
 
-.hero h1 { font-size: 3.5rem; color: var(--primary); text-shadow: 0 0 10px var(--primary); }
-.hero h2 { font-size: 1.5rem; margin-bottom: 20px; opacity: 0.8; }
-
-.skills-bar .tag {
-    border: 1px solid var(--primary);
-    padding: 5px 15px;
-    margin: 5px;
-    font-size: 0.9rem;
-    display: inline-block;
+#gui-view h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+    color: #00ff88;
+    text-shadow: 0 0 20px rgba(0, 255, 136, 0.3);
 }
 
-.gui-section {
-    max-width: 1000px;
-    margin: 0 auto 80px;
+#gui-view .subtitle {
+    font-size: 1.5em;
+    color: #6c757d;
+    margin-bottom: 20px;
 }
 
-.gui-section h3 {
-    border-bottom: 2px solid var(--primary);
-    padding-bottom: 10px;
-    margin-bottom: 30px;
-    color: var(--primary);
+#gui-view .location {
+    color: #adb5bd;
+    margin-bottom: 20px;
 }
 
-.project-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
+#gui-view .contact-links {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-top: 30px;
 }
 
-.card {
-    background: rgba(0, 255, 65, 0.05);
-    border: 1px solid #333;
-    padding: 25px;
-    transition: 0.3s;
-}
-
-.card:hover { border-color: var(--primary); transform: translateY(-5px); }
-.card i { font-size: 2rem; color: var(--primary); margin-bottom: 15px; }
-
-.card-link {
-    display: inline-block;
-    margin-top: 15px;
-    color: var(--primary);
+#gui-view .contact-links a {
+    color: #00ff88;
     text-decoration: none;
-    font-size: 0.9rem;
-    border-bottom: 1px dashed var(--primary);
+    padding: 10px 20px;
+    border: 2px solid #00ff88;
+    border-radius: 5px;
+    transition: all 0.3s ease;
 }
 
-.btn-glitch {
-    display: inline-block;
-    padding: 15px 30px;
-    background: var(--primary);
-    color: #000;
+#gui-view .contact-links a:hover {
+    background: #00ff88;
+    color: #0a0a0a;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 255, 136, 0.3);
+}
+
+#gui-view section { padding: 60px 0; }
+
+#gui-view h2 {
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    color: #00ff88;
+    border-bottom: 2px solid #00ff88;
+    padding-bottom: 10px;
+}
+
+#gui-view .profile-text {
+    font-size: 1.1em;
+    line-height: 1.8;
+    color: #cbd5e0;
+    background: #1a1a2e;
+    padding: 30px;
+    border-radius: 10px;
+    border-left: 4px solid #00ff88;
+}
+
+#gui-view .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+}
+
+#gui-view .skill-card {
+    background: #1a1a2e;
+    padding: 25px;
+    border-radius: 10px;
+    border: 1px solid #2d3748;
+    transition: all 0.3s ease;
+}
+
+#gui-view .skill-card:hover {
+    transform: translateY(-5px);
+    border-color: #00ff88;
+    box-shadow: 0 10px 30px rgba(0, 255, 136, 0.2);
+}
+
+#gui-view .skill-card h3 {
+    color: #00ff88;
+    margin-bottom: 15px;
+    font-size: 1.3em;
+}
+
+#gui-view .skill-card ul { list-style: none; }
+#gui-view .skill-card li { padding: 5px 0; color: #cbd5e0; }
+#gui-view .skill-card li:before { content: "▹ "; color: #00ff88; font-weight: bold; }
+
+#gui-view .case-studies {
+    background: #1a1a2e;
+    padding: 40px;
+    border-radius: 10px;
+    margin-top: 30px;
+}
+
+#gui-view .case-study {
+    background: #0a0a0a;
+    padding: 30px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    border-left: 4px solid #00ff88;
+    transition: all 0.3s ease;
+}
+
+#gui-view .case-study:hover {
+    transform: translateX(10px);
+    box-shadow: 0 5px 20px rgba(0, 255, 136, 0.2);
+}
+
+#gui-view .case-study h3 {
+    color: #00ff88;
+    margin-bottom: 10px;
+    font-size: 1.4em;
+}
+
+#gui-view .case-study p { color: #cbd5e0; margin-bottom: 10px; }
+
+#gui-view .case-study-link {
+    color: #00ff88;
     text-decoration: none;
     font-weight: bold;
+}
+#gui-view .case-study-link:hover { text-decoration: underline; }
+
+#gui-view .education, #gui-view .certifications {
+    background: #1a1a2e;
+    padding: 30px;
+    border-radius: 10px;
+    margin-top: 30px;
+}
+
+#gui-view .cert-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 15px;
     margin-top: 20px;
 }
 
-.social-links a { color: var(--text); text-decoration: none; margin: 0 10px; }
-.social-links a:hover { color: var(--primary); }
+#gui-view .cert-item {
+    background: #0a0a0a;
+    padding: 15px;
+    border-radius: 5px;
+    border-left: 3px solid #00ff88;
+    color: #cbd5e0;
+}
 
-footer { text-align: center; padding: 20px; opacity: 0.5; font-size: 0.8rem; }
+#gui-view .cert-status {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 3px;
+    font-size: 0.85em;
+    margin-left: 10px;
+}
+
+#gui-view .planned { background: #ffc107; color: #0a0a0a; }
+#gui-view .in-progress { background: #17a2b8; color: white; }
+
+#gui-view .objective {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    padding: 40px;
+    border-radius: 10px;
+    margin-top: 30px;
+    border: 2px solid #00ff88;
+    text-align: center;
+}
+
+#gui-view .objective p {
+    font-size: 1.2em;
+    color: #cbd5e0;
+    line-height: 1.8;
+}
+
+#gui-view footer {
+    background: #0a0a0a;
+    padding: 30px 0;
+    text-align: center;
+    margin-top: 60px;
+    border-top: 2px solid #00ff88;
+}
+#gui-view footer p { color: #6c757d; }
+
+/* Switch Button */
+.terminal-switch-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #1a1a2e;
+    color: #00ff88;
+    border: 1px solid #00ff88;
+    padding: 10px 20px;
+    cursor: pointer;
+    z-index: 100;
+    font-family: var(--font-mono);
+    border-radius: 5px;
+}
+.terminal-switch-btn:hover { background: #00ff88; color: #000; }
+
+@media (max-width: 768px) {
+    #gui-view h1 { font-size: 2em; }
+    #gui-view h2 { font-size: 1.8em; }
+    #gui-view .skills-grid { grid-template-columns: 1fr; }
+    #gui-view .contact-links { flex-direction: column; gap: 15px; }
+}
