@@ -14,7 +14,7 @@
     <div class="terminal-container" id="terminal-view">
         <div class="terminal-header">
             <div class="buttons">
-                <span class="close"></span>
+                <span class="close" onclick="switchMode('gui')" title="Switch to GUI"></span>
                 <span class="minimize"></span>
                 <span class="maximize"></span>
             </div>
@@ -29,9 +29,9 @@
  |  __/| | | (_| | \__ \  __/ |
  |_|   |_|  \__,_|_|___/\___|_|
                 </pre>
-                <p><strong>System Ready.</strong> Welcome to Praisel Ekpenyong's Portfolio.</p>
+                <p><strong>System Ready.</strong> Welcome to Praisel Ekpenyong's Terminal.</p>
                 <p>Type <span class="cmd">help</span> to see available commands.</p>
-                <p>Type <span class="cmd">gui</span> to switch to the graphical version.</p>
+                <p>Type <span class="cmd">gui</span> to view the full Portfolio website.</p>
                 <br>
             </div>
             
@@ -43,69 +43,170 @@
     </div>
 
     <div class="gui-container hidden" id="gui-view">
-        <nav>
-            <div class="logo">PE_SOC</div>
-            <div class="nav-links">
-                <a href="#" onclick="switchMode('terminal')">_Terminal</a>
-                <a href="#projects">Case Studies</a>
-                <a href="#contact">Contact</a>
-            </div>
-        </nav>
         
-        <header class="hero">
-            <h1>Praisel Ekpenyong</h1>
-            <h2>SOC Analyst Tier 1</h2>
-            <p>Analyzing SIEM alerts, Windows Event Logs, and suspicious activity to determine true positives.</p>
-            <div class="skills-bar">
-                <span class="tag">Splunk</span>
-                <span class="tag">Wireshark</span>
-                <span class="tag">Azure</span>
-                <span class="tag">ServiceNow</span>
-                <span class="tag">Qualys</span>
+        <button onclick="switchMode('terminal')" class="terminal-switch-btn">
+            <i class="fas fa-terminal"></i> _Terminal Mode
+        </button>
+
+        <header>
+            <div class="container">
+                <h1>Praisel Ekpenyong</h1>
+                <div class="subtitle">SOC Analyst Tier 1</div>
+                <div class="location">Nigeria | Open to Remote & Relocation</div>
+                <div class="contact-links">
+                    <a href="mailto:ekpenyongpraisel@gmail.com">📧 Email</a>
+                    <a href="https://linkedin.com/in/praiselekpenyong" target="_blank">🔗 LinkedIn</a>
+                    <a href="https://github.com/praisel-ekpenyong" target="_blank">💻 GitHub</a>
+                </div>
             </div>
         </header>
-
-        <section id="projects" class="gui-section">
-            <h3>// CASE STUDIES & INVESTIGATIONS</h3>
-            <div class="project-grid">
-                
-                <div class="card">
-                    <i class="fas fa-user-lock"></i>
-                    <h4>Brute Force Investigation</h4>
-                    <p>Analyzed Windows authentication logs and correlated SIEM data to map attack vectors using MITRE ATT&CK.</p>
-                    <a href="https://github.com/praisel-ekpenyong/case-studies/brute-force-investigation.md" target="_blank" class="card-link">View Report ></a>
+    
+        <section id="profile">
+            <div class="container">
+                <h2>Profile</h2>
+                <div class="profile-text">
+                    Entry-level SOC Analyst with hands-on experience in security monitoring, alert triage, and incident investigation through structured SOC labs and simulations. Experienced in analyzing SIEM alerts, Windows Event Logs, and suspicious activity to determine true positives and escalation paths within SOC environments.
                 </div>
-
-                <div class="card">
-                    <i class="fas fa-bug"></i>
-                    <h4>Malware Execution</h4>
-                    <p>Investigated suspicious process execution chains and analyzed Windows Event Logs for indicators of compromise.</p>
-                    <a href="https://github.com/praisel-ekpenyong/case-studies/malware-execution-investigation.md" target="_blank" class="card-link">View Report ></a>
-                </div>
-
-                <div class="card">
-                    <i class="fas fa-search"></i>
-                    <h4>Event Log Analysis</h4>
-                    <p>Deep dive into Windows Security Event Logs to identify suspicious activity timelines and anomalies.</p>
-                    <a href="https://github.com/praisel-ekpenyong/case-studies/windows-event-logs-investigation.md" target="_blank" class="card-link">View Report ></a>
-                </div>
-
             </div>
         </section>
-
-        <section id="contact" class="gui-section">
-            <h3>// INITIALIZE_CONNECTION</h3>
-            <p>Based in Nigeria. Open to Remote & Relocation.</p>
-            <a href="mailto:ekpenyongpraisel@gmail.com" class="btn-glitch">Send Email</a>
-            <br><br>
-            <div class="social-links">
-                <a href="https://linkedin.com/in/praiselekpenyong" target="_blank">LinkedIn</a> | 
-                <a href="https://github.com/praisel-ekpenyong" target="_blank">GitHub</a>
+    
+        <section id="skills">
+            <div class="container">
+                <h2>Core SOC Skills</h2>
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <h3>Security Operations</h3>
+                        <ul>
+                            <li>SIEM monitoring and alert triage</li>
+                            <li>Incident investigation and escalation</li>
+                            <li>Security documentation and reporting</li>
+                            <li>ServiceNow incident workflows</li>
+                        </ul>
+                    </div>
+                    <div class="skill-card">
+                        <h3>Analysis & Investigation</h3>
+                        <ul>
+                            <li>Windows Event Log analysis</li>
+                            <li>Network traffic analysis (PCAP)</li>
+                            <li>MITRE ATT&CK mapping</li>
+                            <li>Vulnerability management fundamentals</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </section>
-
+    
+        <section id="tools">
+            <div class="container">
+                <h2>Tools & Technologies</h2>
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <h3>SIEM & Security Tools</h3>
+                        <ul>
+                            <li>Splunk</li>
+                            <li>Qualys</li>
+                            <li>ServiceNow</li>
+                        </ul>
+                    </div>
+                    <div class="skill-card">
+                        <h3>Operating Systems</h3>
+                        <ul>
+                            <li>Windows</li>
+                            <li>Linux</li>
+                            <li>Active Directory fundamentals</li>
+                        </ul>
+                    </div>
+                    <div class="skill-card">
+                        <h3>Networking & Cloud</h3>
+                        <ul>
+                            <li>TCP/IP, DNS, HTTP/S</li>
+                            <li>Microsoft Azure (AZ-900 level)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    
+        <section id="case-studies">
+            <div class="container">
+                <h2>Hands-On SOC Case Studies</h2>
+                <div class="case-studies">
+                    <div class="case-study">
+                        <h3>1. Brute Force Attack Investigation</h3>
+                        <p>Windows authentication log analysis, SIEM correlation, MITRE ATT&CK mapping</p>
+                        <a href="https://github.com/praisel-ekpenyong/case-studies/brute-force-investigation.md" class="case-study-link" target="_blank">👉 View case study →</a>
+                    </div>
+                    <div class="case-study">
+                        <h3>2. Malware Execution Investigation</h3>
+                        <p>Suspicious process execution and Windows Event Log analysis</p>
+                        <a href="https://github.com/praisel-ekpenyong/case-studies/malware-execution-investigation.md" class="case-study-link" target="_blank">👉 View case study →</a>
+                    </div>
+                    <div class="case-study">
+                        <h3>3. Windows Event Logs Investigation – Finding Suspicious Activity</h3>
+                        <p>Windows Security Event Log analysis and timeline correlation</p>
+                        <a href="https://github.com/praisel-ekpenyong/case-studies/windows-event-logs-investigation.md" class="case-study-link" target="_blank">👉 View case study →</a>
+                    </div>
+                    <p style="margin-top: 20px; color: #adb5bd; font-style: italic;">
+                        Each case study follows a SOC-style investigation format: alert context, evidence review, findings, conclusion, and response recommendations.
+                    </p>
+                </div>
+            </div>
+        </section>
+    
+        <section id="education">
+            <div class="container">
+                <h2>Education</h2>
+                <div class="education">
+                    <h3 style="color: #00ff88; margin-bottom: 10px;">B.Sc. Cybersecurity</h3>
+                    <p style="color: #cbd5e0;">Miva University</p>
+                    <p style="color: #adb5bd;">Expected Graduation: 2027</p>
+                </div>
+            </div>
+        </section>
+    
+        <section id="certifications">
+            <div class="container">
+                <h2>Certifications & Training</h2>
+                <div class="certifications">
+                    <div class="cert-list">
+                        <div class="cert-item">
+                            CompTIA Security+ <span class="cert-status planned">Planned</span>
+                        </div>
+                        <div class="cert-item">
+                            Splunk Core Certified User <span class="cert-status planned">Planned</span>
+                        </div>
+                        <div class="cert-item">
+                            Microsoft Azure Fundamentals (AZ-900) <span class="cert-status planned">Planned</span>
+                        </div>
+                        <div class="cert-item">
+                            Google Cybersecurity Professional Certificate <span class="cert-status in-progress">In Progress</span>
+                        </div>
+                        <div class="cert-item">
+                            ServiceNow System Administrator <span class="cert-status in-progress">In Progress</span>
+                        </div>
+                        <div class="cert-item">
+                            CyberDefenders CCD <span class="cert-status planned">Planned</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    
+        <section id="objective">
+            <div class="container">
+                <h2>Objective</h2>
+                <div class="objective">
+                    <p>
+                        Focused on alert triage, log analysis, and incident response in SOC environments, with a strong interest in blue team operations and continuous learning.
+                    </p>
+                </div>
+            </div>
+        </section>
+    
         <footer>
-            <p>© 2026 Praisel Ekpenyong. Security Clearance: GRANTED.</p>
+            <div class="container">
+                <p>&copy; 2026 Praisel Ekpenyong. All rights reserved.</p>
+            </div>
         </footer>
     </div>
 
